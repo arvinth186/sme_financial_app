@@ -35,3 +35,6 @@ langchain-groq==1.1.2
 
 # Optional (PDF reports)
 reportlab==4.2.0
+
+# For Render
+gunicorn
