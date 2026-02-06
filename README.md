@@ -70,10 +70,10 @@ ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 # LLM Configuration (Choose 'groq' or 'openai')
-LLM_PROVIDER=groq
-GROQ_API_KEY=your_groq_api_key
-# OPENAI_API_KEY=your_openai_api_key
-MODEL_NAME=llama3-8b-8192 # or gpt-4o, etc.
+LLM_PROVIDER=openai
+OPENAI_API_KEY=your_openai_api_key
+#GROQ_API_KEY=your_groq_api_key
+MODEL_NAME=gpt-4o or llama3-8b-819
 TEMPERATURE=0.5
 ```
 
@@ -137,3 +137,4 @@ sme_financial_app/
 ├── start.sh            # Production startup script
 └── README.md           # Project documentation
 ```
+
