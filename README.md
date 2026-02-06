@@ -103,5 +103,23 @@ sme_financial_app/
 The application is designed to be deployed with separate backend and frontend services.
 
 - **Backend**: Can be deployed on platforms like Render, Railway, or AWS.
-- **Frontend**: Optimized for Vercel, Netlify, or any static site host.
+- **Frontend**: Optimized for Vercel, Netlify, or any static site host.'
+
+## 🔮 Future Improvements
+
+🚀 Explainable AI & Decision Transparency
+Enhance AI-generated financial insights with clear explanations, key influencing metrics, confidence scores, and maintain audit logs for traceability and compliance.
+
+📊 Cash Flow Forecasting & Scenario Simulation
+Enable short-term (3–6 months) cash flow projections with what-if analysis to simulate revenue changes, cost variations, and loan repayment impacts.
+
+📈 Industry Benchmarking & Peer Comparison
+Compare SME financial performance against industry benchmarks based on sector, revenue range, and region to provide contextual insights and percentile rankings.
+
+🏦 Credit Readiness & Smart Loan Matching
+Evaluate loan eligibility, identify improvement areas affecting credit approval, and recommend suitable financial products based on risk and health profiles.
+
+👥 Multi-Tenant & Role-Based Access Control
+Support multiple users per organization (owners, accountants, advisors) with role-based permissions, secure data isolation, and advisor-level dashboards.
+
 
