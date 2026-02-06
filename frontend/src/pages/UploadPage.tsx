@@ -16,7 +16,7 @@ const UploadPage = () => {
 
   const handleLogout = () => {
     logoutUser();
-    window.location.replace("/login");
+    navigate("/login", { replace: true });
   };
 
 
@@ -153,26 +153,6 @@ const downloadTemplate = async () => {
   📥 Download {industry} CSV Template
 </button>
 
-
-
-<button
-  onClick={handleLogout}
-  style={{
-    position: "absolute",
-    top: "20px",
-    left: "20px",
-    background: "#e53935",
-    color: "#fff",
-    border: "none",
-    padding: "8px 14px",
-    borderRadius: "8px",
-    fontSize: "14px",
-    fontWeight: 600,
-    cursor: "pointer",
-  }}
->
-  Logout
-</button>
       <div
         style={{
           background: "#1e1e1e",
