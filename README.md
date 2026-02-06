@@ -1,140 +1,107 @@
 # SME Financial App
 
-A powerful FastAPI-based financial analysis and health scoring application designed for Small and Medium Enterprises (SMEs) across various industries.
+A powerful AI-driven financial analysis application designed for Small and Medium-sized Enterprises (SMEs). This platform provides in-depth financial insights, health scores, and credit risk assessments across multiple sectors including Agriculture, Manufacturing, Retail, Logistics, and E-commerce.
 
-## 🚀 Application Overview
+## 🚀 Features
 
-The **SME Financial App** provides detailed financial insights, health scores, and credit risk assessments for businesses in the following sectors:
-
-- **Agriculture**
-- **Manufacturing**
-- **Retail**
-- **Logistics**
-- **E-commerce**
-
-It leverages AI (Large Language Models) to generate natural language explanations of financial metrics and recommends suitable financial products based on the business's health profile.
-
-## ✨ Key Features
-
-- **Financial Metrics Analysis**: Calculates profit margins, revenue trends, inventory ratios, and efficiency metrics from uploaded data.
-- **Health Scoring**: specific algorithms to score business health (0-100) based on industry standards.
-- **Credit Risk Assessment**: Categorizes credit risk (Low, Medium, High) derived from health scores.
-- **AI-Powered Insights**: Uses LangChain (with Groq or OpenAI) to interpret financial data and provide actionable advice in multiple languages.
-- **Product Recommendations**: Suggests financial products (loans, insurance, etc.) tailored to the business's risk profile.
-- **Interactive Dashboard**: Endpoints to retrieve aggregated KPIs and historical analysis records.
-- **Secure Authentication**: User management and authentication flows.
-- **Data Templates**: Downloadable CSV templates for each industry to ensure correct data formatting.
-- **Excel Support**: Upload and analyze data using both `.csv` and `.xlsx` formats.
+- **Multi-Sector Analysis**: Specialized financial analysis for Agriculture, Manufacturing, Retail, Logistics, and E-commerce.
+- **AI-Powered Insights**: Uses Large Language Models (Langchain + OpenAI/Groq) to generate human-readable explanations of financial health.
+- **Financial Health Scoring**: automated calculation of health scores and status.
+- **Credit Risk Assessment**: Evaluates creditworthiness based on financial metrics.
+- **Interactive Dashboard**: Visualizes KPIs and trends using charts.
+- **Recommendation Engine**: Suggests suitable financial products based on risk and health profiles.
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [FastAPI](https://fastapi.tiangolo.com/)
-- **Database**: SQLAlchemy (ORM)
-- **Data Processing**: Pandas, OpenPyXL
-- **AI/LLM**: LangChain, ChatGroq, ChatOpenAI
-- **Server**: Uvicorn / Gunicorn
+### Backend (`/app`)
 
-## ⚙️ Installation & Setup
+- **Framework**: [FastAPI](https://fastapi.tiangolo.com/) - High-performance Python web framework.
+- **Database**: PostgreSQL with [SQLAlchemy](https://www.sqlalchemy.org/) ORM.
+- **Data Processing**: Pandas, OpenPyXL.
+- **AI/LLM**: Langchain, OpenAI/Groq.
+- **Authentication**: JWT (JSON Web Tokens).
 
-### 1. Clone the Repository
+### Frontend (`/frontend`)
 
-```bash
-git clone <repository_url>
-cd sme_financial_app
-```
-
-### 2. Set up a Virtual Environment
-
-```bash
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
-```
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configuration
-
-Create a `.env` file in the root directory and add your configuration variables:
-
-```ini
-DATABASE_URL=sqlite:///./sql_app.db # or your preferred DB connection string
-SECRET_KEY=your_secret_key
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-# LLM Configuration (Choose 'groq' or 'openai')
-LLM_PROVIDER=openai
-OPENAI_API_KEY=your_openai_api_key
-#GROQ_API_KEY=your_groq_api_key
-MODEL_NAME=gpt-4o or llama3-8b-819
-TEMPERATURE=0.5
-```
-
-### 5. Initialize the Database
-
-Run the script to create necessary tables:
-
-```bash
-python create_tables.py
-```
-
-## 🚀 Running the Application
-
-### Development Mode
-
-Start the development server with hot reload:
-
-```bash
-uvicorn app.main:app --reload
-```
-
-The API will be available at `http://127.0.0.1:8000`.
-
-### Production Mode
-
-Use the provided start script or run with Gunicorn:
-
-```bash
-# Using the script (ensure permissions are set: chmod +x start.sh)
-./start.sh
-
-# Or manually
-gunicorn -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:10000
-```
-
-## 📚 API Documentation
-
-Once the server is running, you can access the interactive API usage documentation at:
-
-- **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
-
-### New Endpoints
-
-- **Download Templates**: `GET /templates/{industry}` (e.g., `/templates/retail`) to download a CSV template with the required columns.
+- **Framework**: [React](https://react.dev/) with [Vite](https://vitejs.dev/).
+- **Language**: TypeScript.
+- **Charting**: Recharts.
+- **HTTP Client**: Axios.
+- **PDF Generation**: jsPDF.
 
 ## 📂 Project Structure
 
-```
+```bash
 sme_financial_app/
-├── app/
-│   ├── auth/           # Authentication logic
-│   ├── database/       # DB connection and dependency injection
-│   ├── llm/            # LLM factory and configuration
-│   ├── models/         # SQLAlchemy models (Agriculture, Retail, etc.)
-│   ├── routes/         # API routes (including templates)
-│   ├── services/       # Core business logic (analysis, scoring, credit)
-│   └── main.py         # Application entry point
-├── create_tables.py    # Database initialization script
-├── requirements.txt    # Project dependencies
-├── start.sh            # Production startup script
-└── README.md           # Project documentation
+├── app/                # Backend application code (FastAPI)
+│   ├── models/         # Database models
+│   ├── routes/         # API endpoints
+│   ├── services/       # Business logic & AI services
+│   ├── database/       # DB connection & sessions
+│   └── main.py         # Entry point
+├── frontend/           # Frontend application code (React)
+│   ├── src/            # Source code
+│   └── package.json    # Frontend dependencies
+├── create_tables.py    # Script to initialize database tables
+└── requirements.txt    # Backend dependencies
 ```
+
+## ⚡ Getting Started
+
+### Prerequisites
+
+- Python 3.10+
+- Node.js & npm
+- PostgreSQL Database
+
+### 1. Backend Setup
+
+1.  Navigate to the project root.
+2.  Create and activate a virtual environment:
+    ```bash
+    python -m venv venv
+    # Windows
+    venv\Scripts\activate
+    # Mac/Linux
+    source venv/bin/activate
+    ```
+3.  Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  Configure Environment Variables:
+    - Create a `.env` file in the `app/` directory (or root, depending on config).
+    - Add your Database URL, Secret Keys, and API Keys (OpenAI/Groq).
+5.  Initialize the Database:
+    ```bash
+    python create_tables.py
+    ```
+6.  Start the Backend Server:
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+    The API will be available at `http://localhost:8000`. API Docs at `http://localhost:8000/docs`.
+
+### 2. Frontend Setup
+
+1.  Navigate to the frontend directory:
+    ```bash
+    cd frontend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the Development Server:
+    ```bash
+    npm run dev
+    ```
+    The application will run at `http://localhost:5173`.
+
+## 🌐 Deployment
+
+The application is designed to be deployed with separate backend and frontend services.
+
+- **Backend**: Can be deployed on platforms like Render, Railway, or AWS.
+- **Frontend**: Optimized for Vercel, Netlify, or any static site host.
 
